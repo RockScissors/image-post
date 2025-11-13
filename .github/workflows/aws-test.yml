@@ -1,4 +1,23 @@
 name: aws-test.yml
-on:
 
+#언제
+on:
+  workflow_dispatch: #수동 실행
+#어떤 일
 jobs:
+  test-aws: #이름
+    runs-on: ubuntu-latest #우분투 최신 버전 서버에서 진행
+    steps: # 작업 세부 단계 (순서대로 실행)
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v5.1.0
+        with:
+          aws-access-key-id: ${{ secrets.AWS_DEPLOY_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_DEPLOY_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_REGION }}
+
+
+      - name: Test AWS CLI #로그인 성공 여부 확인
+        run: | #명령어 여러 줄 입력
+          echo "로그인 테스트 시작"
+          aws sts get-caller-identity 
+          aws ecr describe-repositories --repository-names image-post 
