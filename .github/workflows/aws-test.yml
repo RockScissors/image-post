@@ -9,6 +9,7 @@ env:
   AWS_REGION: ap-northeast-2
   ECR_REPOSITORY: image-post
   ECS_CLUSTER: image-post-app-cluster
+  ECS_SERVICE: image-post-service
   ECS_TASK_DEFINITION: image-post-task-def
   CONTAINER_NAME: image-post-container
 
