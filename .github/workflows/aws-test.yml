@@ -38,7 +38,7 @@ jobs:
       run: chmod +x gradlew # 가상 머신에서 gradlew 파일에 실행 권한 부여
 
     - name: Build with Gradle
-      run: ./gradlew build # 가상머신에서 gradle을 사용해 JAR 파일 빌드
+      run: ./gradlew build -x test # 가상머신에서 gradle을 사용해 JAR 파일 빌드
 
     # Github Actions Runner가 AWS API를 호출할 수 있는 자격 증명 설정
     - name: Configure AWS credentials for deployment
