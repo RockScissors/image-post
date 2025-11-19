@@ -100,7 +100,7 @@ jobs:
         with:
           task-definition: task-definition.json
           container-name: ${{ env.CONTAINER_NAME }} # image 필드를 바꿀 컨테이너 이름과, 새 image 전달
-          image: ${{ needs.build-and-push-image.outputs.ecr_registry }}/${{ env.ECR_REPOSITORY }}:${ needs.build-and-push-image.outputs.image_tag }}
+          image: ${{ needs.build-and-push-image.outputs.ecr_registry }}/${{ env.ECR_REPOSITORY }}:${{ needs.build-and-push-image.outputs.image_tag }}
       # 기존 ECS task definition JSON을 가져와, (task-definition.json 읽음)
       # 컨테이너를 찾아 이미지 값을 새 이미지 태그로 교체한 뒤,
       # 새로운 task definition JSON 파일을 만들어 output으로 제공
