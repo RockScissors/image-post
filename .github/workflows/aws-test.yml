@@ -124,6 +124,6 @@ jobs:
       - name: Verify deployment stability # 추가 검증 단계 (선택 사항)
         run: |
           echo "Checking service stability. . ."
-          aws ecs wait service-stable --cluster ${{ env.ECS_CLUSTER }} --services ${ env.ECS_SERVICE }}
+          aws ecs wait service-stable --cluster ${{ env.ECS_CLUSTER }} --services ${{ env.ECS_SERVICE }}
         # 위 step의 wait-for-service-stability와 동일한 검증
           echo "Service is stable."
