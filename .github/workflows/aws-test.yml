@@ -120,7 +120,6 @@ jobs:
           # ECS가 모든 컨테이너를 새 task definition으로 교체하고,
           # RUNNING 상태가 안정될 때까지 기다리며 다음 step으로 넘어가지 않음.
           # (안정 상태 - 정의된 task 수와 RUNNING 상태 task 수 동일 / 헬스 체크 통과 / 롤링 배포 완료)
-
       - name: Verify deployment stability # 추가 검증 단계 (선택 사항)
         run: |
           echo "Checking service stability. . ."
