@@ -10,7 +10,7 @@ env:
   ECR_REPOSITORY: image-post
   ECS_CLUSTER: image-post-app-cluster
   ECS_TASK_DEFINITION: image-post-task-def
-  CONTAINER_NAME: image-post
+  CONTAINER_NAME: image-post-container
 
 permissions:
   contents: read
