@@ -128,5 +128,5 @@ jobs:
       - name: Verify deployment stability
         run: |
           echo "Checking service stability. . ."
-          aws ecs wait service-stable --cluster ${{ env.ECS_CLUSTER }} --services ${{ env.ECS_SERVICE }}
+          aws ecs wait services-stable --cluster ${{ env.ECS_CLUSTER }} --services ${{ env.ECS_SERVICE }}
           echo "Service is stable."
