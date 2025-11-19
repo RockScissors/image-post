@@ -112,7 +112,7 @@ jobs:
         # 새 컨테이너 이미지 반영해 지정된 ECS 서비스 롤링 업데이트 (기존 컨테이너 -> 새 컨테이너 교체)
         # output으로 새 task definition ARN 제공 (여기서는 사용 X)
         with:
-          task-definition: ${{ stepds.render-task-def.outputs.task-definition }}
+          task-definition: ${{ steps.render-task-def.outputs.task-definition }}
           # 이전 step의 output으로 제공된, 업데이트된 task-definition 파일
           service: ${{ env.ECS_SERVICE }} # 배포할 ECS 서비스 이름
           cluster: ${{ env.ECS_CLUSTER }} # 클러스터 이름
@@ -120,6 +120,7 @@ jobs:
           # ECS가 모든 컨테이너를 새 task definition으로 교체하고,
           # RUNNING 상태가 안정될 때까지 기다리며 다음 step으로 넘어가지 않음.
           # (안정 상태 - 정의된 task 수와 RUNNING 상태 task 수 동일 / 헬스 체크 통과 / 롤링 배포 완료)
+
       - name: Verify deployment stability # 추가 검증 단계 (선택 사항)
         run: |
           echo "Checking service stability. . ."
